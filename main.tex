@@ -115,16 +115,20 @@ The matching should cover the entire input string (not partial).
 \begin{equation*}
 T(i,j)=\begin{cases}
 T(i-1,j-1) & p[j]=\text{`.' or }p[j]=s[i]\\
-\bigvee\limits_{k\geqslant 0}{T(i-k,j-2)\vee \bm{E}(s[i-k+1,\cdots,i],p[j-1])} & p[j]=\text{`*'}
+T(i,j-2) & p[j]=\text{`*' and }p[j-1]\neq\text{`.' and }p[j-1]\neq s[i]\\
+T(i,j-2)\vee T(i,j-1)\vee T(i-1,j) & \text{others}
 \end{cases}
 \end{equation*}
-$T(i,j)$ denotes whether the string $s[1,\cdots,i]$ matches with $p[1,\cdots,j]$. The function $\bm{E}(s[i,\cdots,j],c)$ indicates whether the substring $s[i,\cdots,j]$ matches the element $c$, which should be defined as:
-\begin{equation*}
-\bm{E}(s[i,\cdots,j],c)=\begin{cases}
-\textbf{true} & i > j \text{ or } c=\text{`.'}\\
-\bigvee\limits^{j}_{k=i}{s[k]=c} & \text{others}
-\end{cases}
-\end{equation*}
-
+$T(i,j)$ denotes whether the string $s[1,\cdots,i]$ matches with $p[1,\cdots,j]$. Several conditions can be divided as:
+\begin{itemize}
+    \item If $p[j]$ is `.' or simply equals to $s[i]$, then the $j^{th}$ element of $p$ and the $i^{th}$ element of $s$ can be removed together.
+    \item If $p[j]$ is `*', but $p[j-1]\neq$`.' and $p[j-1]\neq s[i]$, it means `*' matches zero preceding element. The last two elements of $p$ can be removed.
+    \item If $p[j]$ is `*', $p[j-1]=$`.' or $p[j-1]=s[i]$, it means `*' matches zero or more of the preceding element:
+    \begin{itemize}
+        \item `*' matches zero preceding element, then the last two elements of $p$ can be removed.
+        \item `*' matches one preceding element, then the last element of $p$ can be removed.
+        \item `*' matches more than one of the preceding element, then the last element of $s$ can be removed.
+    \end{itemize}
+\end{itemize}
 
 \end{document}
