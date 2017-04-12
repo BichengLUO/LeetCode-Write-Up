@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{LeetCode Write-Up}
+\author{Bicheng Luo}
+\date{April 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Dynamic Programming}
+
+\subsection{70. Climbing Stairs}
+
+\paragraph{Description}
+
+You are climbing a stair case. It takes n steps to reach to the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Note: Given n will be a positive integer.
+
+\paragraph{Solution}
+
+$$T(n)=T(n-1)+T(n-2)$$
+$T(n)$ denotes the number of distinct ways of climbing $n$ steps. If the last step is $1$ step, there exist $T(n-1)$ ways to climb the first $n-1$ steps; if the last step is $2$ steps, there exist $T(n-2)$ ways.
+
+\subsection{198. House Robber}
+
+\paragraph{Description}
+
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+
+\paragraph{Solution}
+
+$$T(n)=\max\{T(n-1),T(n-2)+m[n]\}$$
+$T(n)$ denotes the maximum amount of money for $n$ houses. If the last house has been robbed, the penultimate one cannot be robbed. Then the maximum amount will be $T(n-2)+m(n)$, in which $m(n)$ denotes the money of the last house. If the last house has not been robbed, the maximum money will be $T(n-1)$.
+
+\subsection{121. Best Time to Buy and Sell Stock}
+
+\paragraph{Description}
+
+Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$.
+
+If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+
+\paragraph{Solution}
+
+$$T(n)=\min\{T(n-1),p[n-1]\}$$
+$T(n)$ denotes the lowest price for the $n-1$ days. Thus, the maximum profit can be calculated as:
+$$P(n)=\max_{i\leqslant n}\{p[i]-T(i)\}$$
+
+\subsection{53. Maximum Subarray}
+
+\paragraph{Description}
+
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+\subsection{Solution}
+
+$$T(n)=\max\{T(n-1)+a[n],a[n]\}=\max\{T(n-1),0\}+a[n]$$
+$T(n)$ denotes the largest sum of the contiguous subarray which ends at the $n^{th}$ element. Thus, the largest sum can be calculated as:
+$$S(n)=\max_{i\leqslant n}\{T(i)\}$$
+
+\subsection{338. Counting Bits}
+
+\paragraph{Description}
+
+Given a non negative integer number $num$. For every numbers $i$ in the range $0\leqslant i\leqslant num$ calculate the number of 1's in their binary representation and return them as an array.
+
+\subsection{Solution}
+
+$$T(n)=T(n>>1)+n\&1$$
+$T(n)$ denotes the number of 1's in the binary representation of $n$.
+
+\subsection{139. Word Break}
+
+\paragraph{Description}
+
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words. You may assume the dictionary does not contain duplicate words.
+
+For example, given
+s = ``leetcod'',
+dict = [``leet'', ``code''].
+
+Return true because ``leetcode'' can be segmented as ``leet code''.
+
+\paragraph{Solution}
+
+
+
+\end{document}
