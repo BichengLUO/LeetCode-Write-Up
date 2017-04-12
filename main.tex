@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
 
 \title{LeetCode Write-Up}
 \author{Bicheng Luo}
@@ -93,6 +95,36 @@ Return true because ``leetcode'' can be segmented as ``leet code''.
 
 \paragraph{Solution}
 
+$$T(n)=\bigvee\limits_{i<n}{T(i)\vee \bm{E}(s[i+1,\cdots,n])}$$
+$s[i,\cdots,j]$ denotes the substring from $i^{th}$ position to $j^{th}$ position. $T(n)$ denotes whether the string $s[1,\cdots,n]$ can be segmented. The function $\bm{E}(s)$ indicates whether the dictionary contains the string $s$.
+
+\subsection{10. Regular Expression Matching}
+
+\paragraph{Description}
+
+Implement regular expression matching with support for `.' and `*'.
+
+`.' Matches any single character.
+
+`*' Matches zero or more of the preceding element.
+
+The matching should cover the entire input string (not partial).
+
+\paragraph{Solution}
+
+\begin{equation*}
+T(i,j)=\begin{cases}
+T(i-1,j-1) & p[j]=\text{`.' or }p[j]=s[i]\\
+\bigvee\limits_{k\geqslant 0}{T(i-k,j-2)\vee \bm{E}(s[i-k+1,\cdots,i],p[j-1])} & p[j]=\text{`*'}
+\end{cases}
+\end{equation*}
+$T(i,j)$ denotes whether the string $s[1,\cdots,i]$ matches with $p[1,\cdots,j]$. The function $\bm{E}(s[i,\cdots,j],c)$ indicates whether the substring $s[i,\cdots,j]$ matches the element $c$, which should be defined as:
+\begin{equation*}
+\bm{E}(s[i,\cdots,j],c)=\begin{cases}
+\textbf{true} & i > j \text{ or } c=\text{`.'}\\
+\bigvee\limits^{j}_{k=i}{s[k]=c} & \text{others}
+\end{cases}
+\end{equation*}
 
 
 \end{document}
