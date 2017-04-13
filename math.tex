@@ -1,0 +1,48 @@
+\section{Math}
+
+\subsection{2. Add Two Numbers}
+
+\paragraph{Description}
+
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+\paragraph{Solution}
+
+\underline{Code Hints}:
+\begin{itemize}
+    \item Use dummy header to generate the result linked list.
+    \item Check whether $l_1,l_2,carry$ is null or zero.
+    \item Use a pointer pointing the last node to generate the current one and move on.
+\end{itemize}
+
+\begin{minted}[linenos]{cpp}
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    int carry = 0;
+    ListNode dummy_head(0); //Use dummy header to generate linked list
+    ListNode *p = &dummy_head;
+    while (l1 || l2 || carry) //Check whether l1,l2,carry is null or zero
+    {
+        int result = carry + (l1 ? l1->val : 0) + (l2 ? l2->val : 0);
+        carry = result / 10;
+        p->next = new ListNode(result % 10);
+        
+        l1 = l1 ? l1->next : l1;
+        l2 = l2 ? l2->next : l2;
+        p = p->next;
+    }
+    return dummy_head.next;
+}
+\end{minted}
+
+\subsection{13. Roman to Integer}
+
+\paragraph{Description}
+
+Given a roman numeral, convert it to an integer.
+
+Input is guaranteed to be within the range from 1 to 3999.
+
+\paragraph{Solution}
+

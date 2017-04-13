@@ -98,6 +98,11 @@ The matching should cover the entire input string (not partial).
 
 \paragraph{Solution}
 
+\underline{Code Hints}:
+\begin{itemize}
+    \item Use \mint{cpp}|vector<vector<T>> dp(rows, vector<T>(cols, init))| to initialize a 2D array.
+\end{itemize}
+
 \begin{equation*}
 T(i,j)=\begin{cases}
 T(i-1,j-1) & p[j]=\text{`.' or }p[j]=s[i]\\
@@ -147,20 +152,20 @@ Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle con
 If $m[i][j]=1$, then we will have
 \begin{equation*}
 \begin{cases}
-H(i,j)=H(i,j-1)+1\\
-L(i,j)=\max\{L(i,j-1),\bm{l}(i,j)\}\\
-R(i,j)=\min\{R(i,j-1),\bm{r}(i,j)\}
+H(i,j)=H(i-1,j)+1\\
+L(i,j)=\max\{L(i-1,j),\bm{l}(i,j)\}\\
+R(i,j)=\min\{R(i-1,j),\bm{r}(i,j)\}
 \end{cases}
 \end{equation*}
 If $m[i][j]=0$, then we will have
 \begin{equation*}
 \begin{cases}
 H(i,j)=0\\
-L(i,j)=i_{min}\\
-R(i,j)=i_{max}
+L(i,j)=j_{min}\\
+R(i,j)=j_{max}
 \end{cases}
 \end{equation*}
-$H(i,j),L(i,j),R(i,j)$ indicates $3$ properties of the largest rectangle in which $m[i][j]$ lies. Figure \ref{fig:maximal_rectangle} gave an explanation of these properties.
+$H(i,j),L(i,j),R(i,j)$ indicates $3$ properties of the largest\footnote{It's tricky here! The rectangle is defined as first the tallest then widest one.} rectangle whose bottom row $m[i][j]$ lies in. Figure \ref{fig:maximal_rectangle} gave an explanation of these properties.
 $\bm{l}(i,j),\bm{r}(i,j)$ denotes the left and right index of the largest contiguous subarray, where $m[i][j]$ lies and which contains all 1's.
 \begin{figure}[ht]
     \centering
@@ -168,6 +173,9 @@ $\bm{l}(i,j),\bm{r}(i,j)$ denotes the left and right index of the largest contig
     \caption{The grey area denotes the all 1's area; the orange cube denotes $m[i][j]$; the blue rectangle denotes the largest rectangle in which $m[i][j]$ lies. $H(i,j)$ denotes the distance between the top of the rectangle and $m[i][j]$; $L(i,j)$ denotes the left index of the rectangle; $R(i,j)$ denotes the right index of the rectangle.}
     \label{fig:maximal_rectangle}
 \end{figure}
+
+Thus, the area $\bm{M}$ of the largest rectangle can be calculated as:
+$$\bm{M}=\max_{i,j}\{H(i,j)(R(i,j)-L(i,j)+1)\}$$
 
 \subsection{96. Unique Binary Search Trees}
 
