@@ -45,4 +45,29 @@ Given a roman numeral, convert it to an integer.
 Input is guaranteed to be within the range from 1 to 3999.
 
 \paragraph{Solution}
+\underline{Code Hints}:
+\begin{itemize}
+    \item Use initializer list to initialize unordered\_map:\mint{cpp}|unordered_map<int, string> m2 = {{1, "foo"}, {3, "bar"}, {2, "baz"}};|
+\end{itemize}
 
+$$\bm{I}=\sum^{n-1}_{i=1}{\bm{S}(m[s[i+1]]<m[s[i]])m[s[i]]}+m[s[n]]$$
+$s[i]$ denotes the $i^{th}$ character of the roman numeral string $s$. $m$ is used to map the character to the integer value. The function $\bm{S}(b)$ check the boolean expression $b$, if it is true then return $1$, false return $-1$. 
+
+\subsection{258. Add Digits}
+
+\paragraph{Description}
+
+Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+
+For example:
+
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+
+Follow up:
+Could you do it without any loop/recursion in $O(1)$ runtime?
+
+\paragraph{Solution}
+
+Digital Root Congruence Formula:
+$$0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9,\cdots$$
+$$dr(n)=1+((n - 1)\mod 9)$$
