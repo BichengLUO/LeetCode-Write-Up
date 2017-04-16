@@ -50,7 +50,7 @@ Find the contiguous subarray within an array (containing at least one number) wh
 For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
 the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 
-\subsection{Solution}
+\paragraph{Solution}
 
 $$T(n)=\max\{T(n-1)+a[n],a[n]\}=\max\{T(n-1),0\}+a[n]$$
 $T(n)$ denotes the largest sum of the contiguous subarray which ends at the $n^{th}$ element. Thus, the largest sum can be calculated as:
@@ -62,7 +62,7 @@ $$S(n)=\max_{i\leqslant n}\{T(i)\}$$
 
 Given a non negative integer number $num$. For every numbers $i$ in the range $0\leqslant i\leqslant num$ calculate the number of 1's in their binary representation and return them as an array.
 
-\subsection{Solution}
+\paragraph{Solution}
 
 $$T(n)=T(n>>1)+n\&1$$
 $T(n)$ denotes the number of 1's in the binary representation of $n$.
