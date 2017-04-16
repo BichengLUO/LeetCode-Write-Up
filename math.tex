@@ -70,4 +70,8 @@ Could you do it without any loop/recursion in $O(1)$ runtime?
 
 Digital Root Congruence Formula:
 $$0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9,\cdots$$
-$$dr(n)=1+((n - 1)\mod 9)$$
+$$dr(n)=1+((n - 1) \% 9)$$
+
+Proof:
+$$\overline{abc}\equiv a\cdot 10^2+b\cdot 10+c\equiv a+b+c \pmod{9}$$
+Thus, $\overline{abc}$ and $a+b+c$ are in congruence relation. The result of the problem and the input number are in congruence relation, too. The modulus operation with $9$ will lead to the answer. (Be careful to the situation like $9\equiv 0\pmod{9}$)
