@@ -6,12 +6,28 @@
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage{minted}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={150mm,257mm},
+ left=30mm,
+ top=20mm,
+ }
+ 
+\usepackage{tgbonum}
+\usepackage[usenames, dvipsnames]{color}
+\definecolor{background_color}{RGB}{255, 255, 250}
 
-\title{LeetCode Write-Up \\(\textbf{Highly Frequent} Problems)}
+\pagestyle{headings}
+
+\title{\huge LeetCode Write-Up \\(\textbf{Highly Frequent} Problems)}
 \author{Bicheng Luo}
 \date{April 2017}
 
 \begin{document}
+
+\setlength{\parindent}{0ex}
+\pagecolor{background_color}
 
 \maketitle
 \pagebreak
@@ -23,5 +39,6 @@
 \input{math}
 \input{hash_table}
 \input{tree}
+\input{binary_search}
 
 \end{document}
