@@ -12,7 +12,9 @@ You may assume that each input would have exactly one solution, and you may not 
 
 \underline{Code Hints}:
 \begin{itemize}
-    \item 
+    \item Use \mintinline{cpp}{unordered_map<int, int> num_map} to generate a value-to-index mapping.
+    \item Search \mintinline{cpp}{target - nums[i]} in the mapping.
+    \item If not found, insert the \mintinline{cpp}{nums[i]} into the mapping.
 \end{itemize}
 
 \begin{minted}[linenos]{cpp}

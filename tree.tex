@@ -7,3 +7,27 @@
 Given a binary tree, find its maximum depth.
 
 The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+\paragraph{Solution}
+
+\begin{itemize}
+    \item Calculate depth values for each node (or only leaf nodes), thus DFS (recursion or iteration) or BFS can both be valid.
+    \item BFS and DFS for a tree does not require the existence check.
+    \item Write depth values in \mintinline{cpp}|TreeNode.val| for convenience.
+\end{itemize}
+
+\subsection{226. Invert Binary Tree}
+
+\paragraph{Description}
+
+Invert a binary tree.
+
+Google: 90\% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
+
+\paragraph{Solution}
+
+\underline{Code Hints}:
+\begin{itemize}
+    \item Swap left child and right child for each element of the tree, thus DFS (recursion or iteration) or BFS can both be valid.
+    \item BFS and DFS for a tree does not require the existence check.
+\end{itemize}
