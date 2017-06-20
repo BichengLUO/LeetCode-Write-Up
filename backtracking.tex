@@ -2,7 +2,7 @@
 
 \subsection{17. Letter Combinations of a Phone Number}
 
-\paragraph{Description}
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
 Given a digit string, return all possible letter combinations that the number could represent.
 
 A mapping of digit to letters (just like on the telephone buttons) is given below.
@@ -13,8 +13,7 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
     \label{fig:phone_number}
 \end{figure}
 
-\paragraph{Solution}
-
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
 $$f(s[1,\cdots,n])=\{m(s[1]],i)+f(s[2,\cdots,n])[j]|\text{ all possible } i,j\}$$
 or
 $$f(s[1,\cdots,n])=\{f(s[1,\cdots,n-1])[j]+m(s[n],i)|\text{ all possible } i,j\}$$
@@ -30,10 +29,11 @@ where $f(s)$ gives the set of possible letter combinations, $s$ denotes the digi
 
 \subsection{22. Generate Parentheses}
 
-\paragraph{Description}
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
 
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
 \underline{Code Hints:}
 \begin{itemize}
     \item We need to make sure left parentheses are fewer than $n$ and right parentheses are fewer than left parentheses.
@@ -42,12 +42,11 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 
 \subsection{46. Permutations}
 
-\paragraph{Description}
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
 
 Given a collection of distinct numbers, return all possible permutations.
 
-\paragraph{Solution}
-
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
 \underline{Code Hints:}
 \begin{itemize}
     \item Because we need to traversal the whole tree until the leaf nodes are visited, returning intermediate results is not necessary. Thus, use \mint{cpp}|void recur(vector<ctx> &result, ctx &current, ...)| instead of \mint{cpp}|vector<ctx> recur(ctx &current, ...)|
@@ -55,14 +54,13 @@ Given a collection of distinct numbers, return all possible permutations.
 
 \subsection{89. Gray Code}
 
-\paragraph{Description}
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
 
 The gray code is a binary numeral system where two successive values differ in only one bit.
 
 Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
-\paragraph{Solution}
-
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
 \underline{Code Hints:}
 \begin{itemize}
     \item A bit of 1 with Exclusive Or can switch one bit, while a bit of 0 with XOR does nothing.
@@ -70,15 +68,15 @@ Given a non-negative integer n representing the total number of bits in the code
 
 \subsection{79. Word Search}
 
-\paragraph{Solution}
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
 
 Given a 2D board and a word, find if the word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 
-\paragraph{Solution}
-
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
 \underline{Code Hints:}
 \begin{itemize}
     \item Use \mint{cpp}|vector<vector<int>> path(board.size(), vector<int>(board[0].size(), 0));| instead of \mintinline{cpp}|set<pair<int, int>> path;| to store the path.
+    \item Pruning in the beginning of the current recursion or before the next recursion.
 \end{itemize}
