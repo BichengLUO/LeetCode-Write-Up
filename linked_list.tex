@@ -1,0 +1,32 @@
+\section{Linked List}
+
+\subsection{237. Delete Node in a Linked List}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+
+Supposed the linked list is $1 -> 2 -> 3 -> 4$ and you are given the third node with value 3, the linked list should become $1 -> 2 -> 4$ after calling your function.
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+\underline{Code Hints}:
+\begin{itemize}
+    \item Actually we cannot remove a node in a singly linked list without its previous node. However, we can see this problem in two aspects:
+    \begin{itemize}
+        \item Remove an arbitrary node in the linked list to shorten it.
+        \item Correct the values of each node in the new linked list as if the node to be deleted has been truly removed.
+    \end{itemize}
+\end{itemize}
+
+\subsection{206. Reverse Linked List}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Reverse a singly linked list.
+
+A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+Recursive Method:
+$$R(l[1,\cdots])=\{R(l[2,\cdots]),l[1]\}$$
+where $R(l)$ denotes the reversed list of $l$, $l[i,\cdots]$ denotes a linked list which starts with the $i^{th}$ element of the list $l$.
+
+Iterative Method:

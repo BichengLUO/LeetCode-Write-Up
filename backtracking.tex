@@ -30,7 +30,6 @@ where $f(s)$ gives the set of possible letter combinations, $s$ denotes the digi
 \subsection{22. Generate Parentheses}
 
 \paragraph{\color{white} \colorbox{Mahogany}{Description}}
-
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 \paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
@@ -43,7 +42,6 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 \subsection{46. Permutations}
 
 \paragraph{\color{white} \colorbox{Mahogany}{Description}}
-
 Given a collection of distinct numbers, return all possible permutations.
 
 \paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
@@ -55,7 +53,6 @@ Given a collection of distinct numbers, return all possible permutations.
 \subsection{89. Gray Code}
 
 \paragraph{\color{white} \colorbox{Mahogany}{Description}}
-
 The gray code is a binary numeral system where two successive values differ in only one bit.
 
 Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
@@ -69,7 +66,6 @@ Given a non-negative integer n representing the total number of bits in the code
 \subsection{79. Word Search}
 
 \paragraph{\color{white} \colorbox{Mahogany}{Description}}
-
 Given a 2D board and a word, find if the word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
@@ -78,5 +74,35 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 \underline{Code Hints:}
 \begin{itemize}
     \item Use \mint{cpp}|vector<vector<int>> path(board.size(), vector<int>(board[0].size(), 0));| instead of \mintinline{cpp}|set<pair<int, int>> path;| to store the path.
-    \item Pruning in the beginning of the current recursion or before the next recursion.
+    \item Pruning at the beginning of the current recursion or before the next recursion.
+\end{itemize}
+
+\subsection{140. Word Break II}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. You may assume the dictionary does not contain duplicate words.
+
+Return all such possible sentences.
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+\underline{Code Hints:}
+\begin{itemize}
+    \item When the problem is huge and it may contain a lot of repeated pattern, Memoization + Recursion can be a good choice to avoid TLE.
+\end{itemize}
+
+\subsection{39. Combination Sum}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+
+The same repeated number may be chosen from C unlimited number of times.
+
+Note:
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+\underline{Code Hints:}
+\begin{itemize}
+    \item Divide the combinations into several groups according to the minimal index of the numbers they have. Thus, we do not need the sort before backtracking (divide the combinations according to the minimal number they have).
 \end{itemize}
