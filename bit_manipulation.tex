@@ -1,0 +1,33 @@
+\section{Bit Manipulation}
+
+\subsection{136. Single Number}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+$$a\text{ XOR }0 = a$$
+$$a\text{ XOR }a = 0$$
+
+\subsection{371. Sum of Two Integers}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+$$a+b=(a\text{ Bitwise XOR }b) + 2\times(a\text{ Bitwise AND }b)$$
+
+\subsection{191. Number of 1 Bits}
+
+\paragraph{\color{white} \colorbox{Mahogany}{Description}}
+Write a function that takes an unsigned integer and returns the number of `1' bits it has (also known as the Hamming weight).
+
+For example, the 32-bit integer `11' has binary representation
+
+00000000000000000000000000001011, so the function should return 3.
+
+\paragraph{\color{white} \colorbox{OliveGreen}{Solution}}
+$n\text{ Bitwise AND }(n-1)$ can take the last bit of `1' in $n$.
